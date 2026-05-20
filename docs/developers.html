@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Застройщикам (Phuket Developers Portal) — Phuket Offer Flow</title>
+  
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;750&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space+Grotesk', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fafbfd] text-slate-800 font-sans selection:bg-purple-600 selection:text-white leading-normal min-h-screen flex flex-col">
+
+  <!-- HEADER / NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-display font-bold text-sm shadow-md shadow-indigo-500/20">PF</span>
+        <span class="font-display font-bold text-slate-900 tracking-tight text-base sm:text-lg">Phuket Offer Flow<span class="text-indigo-650">.</span></span>
+      </a>
+      
+      <!-- Nav Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-wider">Главная для Покупателей</a>
+        <a href="#benefits" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-wider">Преимущества</a>
+        <a href="#test-deal" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors uppercase tracking-wider font-bold text-indigo-600">Тест Webhook Оффера</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div>
+        <a href="#devFormSection" class="bg-indigo-600 hover:bg-slate-900 hover:scale-[1.02] active:scale-[0.98] text-white text-xs font-bold px-4 sm:px-5 py-2.5 rounded-lg transition duration-200 shadow-sm flex items-center">
+          Подключить Компанию
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 text-white pt-20 pb-28 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent opacity-60"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-4xl mx-auto space-y-6">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 text-xs font-semibold border border-indigo-500/20 tracking-wider uppercase font-mono mx-auto">
+        💼 Для Застройщиков и Агентов Пхукета
+      </div>
+      
+      <h1 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] max-w-3xl mx-auto">
+        Продавайте объекты на Пхукете <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-sky-300">без посредников</span> и комиссий
+      </h1>
+      
+      <p class="text-slate-350 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+        Используйте прескриптивный ИИ-скоринг для автоматической стыковки ваших горячих офферов с квалифицированными покупателями. Забудьте про 5-8% агентских вознаграждений.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+        <a href="#devFormSection" class="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 text-slate-950 font-bold text-xs sm:text-sm px-8 py-3 rounded-xl transition duration-200 uppercase tracking-wider">
+          Зарегистрировать Компанию
+        </a>
+        <a href="#test-deal" class="w-full sm:w-auto bg-white/10 hover:bg-white/15 text-slate-200 font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition duration-200 uppercase tracking-wider">
+          Протестировать отправку сделки
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS BENTO-GRID -->
+  <section id="benefits" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-16 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Benefit 1 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4 text-left">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-display font-bold text-[15px]">AI</div>
+        <h3 class="font-display font-bold text-slate-900 text-sm">Прогрессивный таргетинг</h3>
+        <p class="text-xs text-slate-500 font-light leading-relaxed">
+          Gemini LLM автоматически анализирует контекст описания вашей виллы, соотношение цены и дохода и отбирает инвесторов с точной совместимостью.
+        </p>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4 text-left">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-display font-bold text-[15px]">0%</div>
+        <h3 class="font-display font-bold text-slate-900 text-sm">Без комиссионных кабалы</h3>
+        <p class="text-xs text-slate-500 font-light leading-relaxed">
+          Вы платите только за прямую связь с покупателем или за квалифицированный лид. Вся прибыль от продажи остается внутри вашей компании.
+        </p>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4 text-left">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-display font-bold text-[15px]">⏱️</div>
+        <h3 class="font-display font-bold text-slate-900 text-sm">Полный запуск за 1 день</h3>
+        <p class="text-xs text-slate-500 font-light leading-relaxed">
+          Используйте нашу готовую связку Google Forms или задействуйте webhook для вашей внутренней CRM типа AmoCRM/Bitrix24 или Glide.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEST WEBHOOK DEAL BLOCK (INTERACTIVE DEMO) -->
+  <section id="test-deal" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-gradient-to-br from-indigo-900 to-indigo-950 text-white rounded-3xl p-6 sm:p-10 border border-indigo-700/40 shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- TEXT/DEMO EXPLANATION (Col-5) -->
+      <div class="lg:col-span-5 space-y-5 text-left">
+        <span class="text-[9px] bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 font-bold uppercase py-1 px-2.5 rounded-md tracking-wider">Интерактивный тренажер</span>
+        <h3 class="font-display font-bold text-xl sm:text-2xl text-teal-300 leading-tight">Протестируйте бэкэнд-вебхук прямо сейчас!</h3>
+        <p class="text-slate-300 text-xs font-light leading-relaxed">
+          Представьте, что вы застройщик и отправляете информацию о новой строящейся вилле. В форме справа заполнен демо-лот. 
+        </p>
+        <p class="text-slate-300 text-xs font-light leading-relaxed">
+          После клика форма отправит реальный HTTPS POST запрос в наше Express-ядро. База данных зарегистрирует ее, а на главной панели управления Phuket Offer Flow зафиксируется событие.
+        </p>
+      </div>
+
+      <!-- INTERACTIVE PROPOSAL FORM (Col-7) -->
+      <div class="lg:col-span-7 bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 space-y-4">
+        
+        <form id="propForm" onsubmit="submitDeveloperDeal(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+          
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Company Developer</label>
+            <input 
+              type="text" 
+              id="devName" 
+              required 
+              value="Botanica Luxury Phuket" 
+              class="w-full px-3.5 py-2.5 bg-white/10 border border-white/20 focus:border-indigo-405 outline-none text-xs text-white rounded-lg"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Property Title</label>
+            <input 
+              type="text" 
+              id="propTitle" 
+              required 
+              value="Botanica Exclusive Bangtao Villa" 
+              class="w-full px-3.5 py-2.5 bg-white/10 border border-white/20 focus:border-indigo-405 outline-none text-xs text-white rounded-lg"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Location Zone</label>
+            <input 
+              type="text" 
+              id="propLoc" 
+              required 
+              value="Bangtao Beach" 
+              class="w-full px-3.5 py-2.5 bg-white/10 border border-white/20 focus:border-indigo-405 outline-none text-xs text-white rounded-lg"
+            />
+          </div>
+
+          <div>
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Price (THB)</label>
+            <input 
+              type="number" 
+              id="propPrice" 
+              required 
+              value="22500000" 
+              class="w-full px-3.5 py-2.5 bg-white/10 border border-white/20 focus:border-indigo-405 outline-none text-xs text-white rounded-lg"
+            />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Detailed Description (For Gemini context matcher)</label>
+            <textarea 
+              id="propDesc" 
+              required 
+              rows="2" 
+              class="w-full px-3.5 py-2.5 bg-white/10 border border-white/20 focus:border-indigo-405 outline-none text-xs text-white rounded-lg"
+            >Gorgeous 4-bedroom signature pool villa. Nestled in a premium secluded Botanica garden estate within 5 minutes of Laguna Golf Course and Bangtao beaches. High ROI yield program of 9.5% includes turnkey management and bespoke furniture package.</textarea>
+          </div>
+
+          <div class="sm:col-span-2 pt-1">
+            <button 
+              type="submit" 
+              id="propSubmitBtn" 
+              class="w-full bg-indigo-500 hover:bg-emerald-500 hover:text-slate-950 text-slate-900 font-bold text-xs uppercase py-3 rounded-lg tracking-widest transition duration-150 cursor-pointer select-none flex items-center justify-center gap-2"
+            >
+              <span id="propBtnText">Отправить оффер в систему</span>
+              <svg id="propLoadingIcon" class="hidden animate-spin h-4 w-4 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </button>
+          </div>
+
+        </form>
+
+        <div id="propWebSuccess" class="hidden text-emerald-300 p-3 bg-emerald-900/60 border border-emerald-500/30 text-[11px] rounded-lg">
+          ✅ <b>УСПЕХ!</b> Вебхук отработал на 100%! Предложение застройщика успешно сохранено в базе данных. Проверьте «Properties» на панели!
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN REGISTRATION FORM SECTION -->
+  <section id="devFormSection" class="max-w-3xl mx-auto px-4 py-16 text-center space-y-6">
+    <div class="space-y-1">
+      <h2 class="font-display font-bold text-2xl text-slate-900">Заявка на подключение застройщика</h2>
+      <p class="text-xs text-slate-500">Зарегистрируйте свой бренд в системе, чтобы получить доступ к Google Forms и CRM коннекторам.</p>
+    </div>
+
+    <!-- Free trial submission (Saves leads) -->
+    <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-md">
+      <form id="devRegistration" onsubmit="submitDevRegistration(event)" class="space-y-4 text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Название застройщика / Агентства *</label>
+            <input type="text" id="regCompany" required placeholder="Nirvana Developments" class="w-full p-2.5 border border-slate-200 bg-slate-50 focus:bg-white text-xs rounded-lg" />
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Имя контактного лица *</label>
+            <input type="text" id="regName" required placeholder="Сергей Лазо" class="w-full p-2.5 border border-slate-200 bg-slate-50 focus:bg-white text-xs rounded-lg" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Почта компании *</label>
+            <input type="email" id="regEmail" required placeholder="sales@nirvanaphuket.com" class="w-full p-2.5 border border-slate-200 bg-slate-50 focus:bg-white text-xs rounded-lg" />
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">WhatsApp / Phone *</label>
+            <input type="tel" id="regPhone" required placeholder="+66820001122" class="w-full p-2.5 border border-slate-200 bg-slate-50 focus:bg-white text-xs rounded-lg" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Ориентировочное количество горящих лотов в месяц</label>
+          <select id="regVolume" class="w-full p-2.5 border border-slate-200 bg-slate-50 focus:bg-white text-xs rounded-lg">
+            <option value="1-3">1-3 эксклюзивных предложения</option>
+            <option value="4-10" selected>4-10 лотов без посредников</option>
+            <option value="10+">Свыше 10 объектов в месяц</option>
+          </select>
+        </div>
+
+        <button type="submit" id="regSubmitBtn" class="w-full bg-slate-900 hover:bg-slate-950 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-lg transition duration-150">
+          Получить доступ к Google Форме бесплатно
+        </button>
+      </form>
+
+      <div id="regSuccess" class="hidden p-4 bg-indigo-50 border border-indigo-150 text-indigo-900 text-xs rounded-xl space-y-1 text-left mt-4">
+        <h5 class="font-bold">Вы успешно зарегистрированы в первом списке!</h5>
+        <p class="font-light">Мы открыли для Вас доступ. Для автоматической генерации Google Форм и импорта сделок авторизуйтесь на основной панели управления и запустите автонастройку!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ FOR DEVELOPERS -->
+  <section class="bg-white border-t border-slate-200 py-16 px-4">
+    <div class="max-w-4xl mx-auto space-y-8 text-left">
+      <h3 class="font-display font-bold text-xl text-slate-900">Отвечаем на вопросы застройщиков</h3>
+      
+      <div class="space-y-4">
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-150">
+          <h5 class="font-bold text-xs text-slate-800">Как Phuket Offer Flow находит клиентов под мои виллы?</h5>
+          <p class="text-xs text-slate-500 mt-1 font-light">
+            Мы собираем органический трафик инвесторов через специализированный лендинг, телеграм-каналы и закрытые пулы инвесторов. Система не рассылает спам, а направляет точечный скоринг только кандидатам с подтвержденным бюджетом и интересом к вашей локации.
+          </p>
+        </div>
+
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-150">
+          <h5 class="font-bold text-xs text-slate-800">Можно ли подключить форму напрямую на наш Google Диск?</h5>
+          <p class="text-xs text-slate-500 mt-1 font-light">
+            Да! Через главное меню администратор платформы Phuket Offer Flow может в 1 клик создать форму на вашем диске и настроить полностью автоматический парсинг входящих строк.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FOOTER HERO WITH LINKS -->
+  <footer class="mt-auto bg-slate-900 text-white pt-12 pb-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-left">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-slate-800">
+        <div class="space-y-1">
+          <h4 class="font-display font-bold text-base flex items-center gap-2 text-white">
+            <span class="w-6 h-6 rounded-md bg-indigo-600 flex items-center justify-center text-white font-mono font-bold text-xs">PF</span>
+            Phuket Offer Flow
+          </h4>
+          <p class="text-xs text-slate-450 font-light max-w-xl">
+            Первая полностью бесплатная AI Proptech автоматическая система интеллектуального матчинга сделок на Пхукете.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="index.html" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors uppercase tracking-wider">&larr; Вернуться к Лендингу Покупателей</a>
+        </div>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[11px] text-slate-500">
+        <span>© 2026 Phuket Offer Flow. Все права защищены. Разработано с использованием Gemini AI.</span>
+        <span>Email: pavel@ignatevestate.com | WhatsApp: +66991112223</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    async function submitDeveloperDeal(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById("propSubmitBtn");
+      const btnText = document.getElementById("propBtnText");
+      const loadingIcon = document.getElementById("propLoadingIcon");
+      const successBox = document.getElementById("propWebSuccess");
+
+      submitBtn.disabled = true;
+      loadingIcon.classList.remove("hidden");
+      btnText.innerText = "Импорт deal-пакета...";
+
+      const payload = {
+        developer: document.getElementById("devName").value,
+        title: document.getElementById("propTitle").value,
+        location: document.getElementById("propLoc").value,
+        type: "Pool Villa",
+        priceTHB: Number(document.getElementById("propPrice").value),
+        roiEstimate: "9.5% Guaranteed ROI Plan",
+        description: document.getElementById("propDesc").value
+      };
+
+      try {
+        const response = await fetch("http://localhost:3000/api/webhook/google-forms", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          successBox.classList.remove("hidden");
+          setTimeout(() => { successBox.classList.add("hidden"); }, 8000);
+        } else {
+          alert("Данные не отправлены. Проверьте правильность сборки бэкенда.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Ошибка вебхука. Убедитесь, что Express-сервер запущен!");
+      } finally {
+        submitBtn.disabled = false;
+        loadingIcon.classList.add("hidden");
+        btnText.innerText = "Отправить оффер в систему";
+      }
+    }
+
+    function submitDevRegistration(event) {
+      event.preventDefault();
+      document.getElementById("devRegistration").classList.add("hidden");
+      document.getElementById("regSuccess").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
