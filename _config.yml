@@ -1,0 +1,24 @@
+title: Phuket Offer Flow
+description: Real estate offers flow in Phuket
+theme: jekyll-theme-primer
+remote_theme: primer/primer
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+
+# Collections
+collections_dir: collections
+
+# Exclude from processing
+exclude:
+  - .github
+  - node_modules
+  - vendor
+  - .env
+  - .env.example
+  - "*.md"
+  - README.md
